@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>/Users/rodanami/Documents/Personal/SpaceF14/SpaceF14Content/fonts/Arial20.spritefont</SourceFile>
+  <SourceTime>2017-08-27T17:42:04-03:00</SourceTime>
+  <DestFile>/Users/rodanami/Documents/Personal/SpaceF14/SpaceF14Content/bin/fonts/Arial20.xnb</DestFile>
+  <DestTime>2017-09-01T14:42:15-03:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2017-08-31T22:35:16-03:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2017-08-31T22:35:16-03:00</ProcessorTime>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

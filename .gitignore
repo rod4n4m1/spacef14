@@ -1,0 +1,6 @@
+
+*.exe
+*.mdb
+*.userprefs
+
+PerPixelCollisionSample_4_0/*
