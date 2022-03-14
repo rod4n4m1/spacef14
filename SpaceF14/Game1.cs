@@ -154,13 +154,11 @@ namespace SpaceF14
 
 		public Game1 ()
 		{
+
 			graphics = new GraphicsDeviceManager (this);
+
 			Content.RootDirectory = "Content";	            
 
-			// set resolution and make mouse invisible
-			graphics.PreferredBackBufferWidth = GameConstants.WindowWidth;
-			graphics.PreferredBackBufferHeight = GameConstants.WindowHeight;
-			IsMouseVisible = false;
 		}
 
 		/// <summary>
@@ -172,6 +170,13 @@ namespace SpaceF14
 		protected override void Initialize ()
 		{
 			RandomNumberGenerator.Initialize();
+
+			// set resolution and make mouse invisible
+			graphics.PreferredBackBufferWidth = GameConstants.WindowWidth;
+			graphics.PreferredBackBufferHeight = GameConstants.WindowHeight;
+			graphics.ApplyChanges();
+			
+			IsMouseVisible = false;
 
 			base.Initialize ();
 		}
