@@ -6,5 +6,8 @@ SpaceF14/bin*
 SpaceF14/obj*
 SpaceF14/.vscode
 SpaceF14/Content
+SpaceF14Content/bin*
+SpaceF14Content/obj*
 .DS_Store
 */.DS_Store
+*/.mgstats

@@ -1,70 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{42CD88F0-D99C-4A66-BBFB-EF1495073740}</ProjectGuid>
-    <ProjectTypeGuids>{948B3504-5B70-4649-8FE4-BDE1FB46EC69};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>SpaceF14</RootNamespace>
-    <AssemblyName>SpaceF14</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <MonoGamePlatform>MacOSX</MonoGamePlatform>
-    <SuppressXamMacMigration>true</SuppressXamMacMigration>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <EnableCodeSigning>false</EnableCodeSigning>
-    <CodeSigningKey></CodeSigningKey>
-    <CreatePackage>false</CreatePackage>
-    <EnablePackageSigning>false</EnablePackageSigning>
-    <IncludeMonoRuntime>false</IncludeMonoRuntime>
-    <UseSGen>false</UseSGen>
-    <PlatformTarget>x86</PlatformTarget>
-    <LinkMode>None</LinkMode>
-    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <EnableCodeSigning>true</EnableCodeSigning>
-    <CodeSigningKey>Developer ID Application</CodeSigningKey>
-    <CreatePackage>true</CreatePackage>
-    <EnablePackageSigning>false</EnablePackageSigning>
-    <IncludeMonoRuntime>true</IncludeMonoRuntime>
-    <UseSGen>false</UseSGen>
-    <LinkMode>SdkOnly</LinkMode>
-    <PlatformTarget>x86</PlatformTarget>
-    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <OutputPath>bin/Latest/</OutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="MonoMac" />
-    <Reference Include="MonoGame.Framework">
-      <HintPath>/Library/Frameworks/MonoGame.framework/v3.0/Assemblies/MacOSX/MonoGame.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenTK">
-      <HintPath>/Library/Frameworks/MonoGame.framework/v3.0/Assemblies/MacOSX/OpenTK.dll</HintPath>
-      <SpecificVersion>true</SpecificVersion>
-    </Reference>
-    <Reference Include="Tao.Sdl">
-      <HintPath>/Library/Frameworks/MonoGame.framework/v3.0/Assemblies/MacOSX/Tao.Sdl.dll</HintPath>
-    </Reference>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,7 +32,7 @@
     <Compile Include="Rock.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Main.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="PickupType.cs" />
     <Compile Include="Pickup.cs" />
     <Compile Include="LevelsData.cs" />
@@ -101,7 +49,7 @@
     <InterfaceDefinition Include="MainMenu.xib" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <MonoGameContentReference Include="..\SpaceF14Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\audio\" />
@@ -109,233 +57,233 @@
     <Folder Include="Content\fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\SpaceF14Content\bin\graphics\bear_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\bear_explosion.xnb">
       <Link>Content\graphics\bear_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\bear_green.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\bear_green.xnb">
       <Link>Content\graphics\bear_green.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\bear_shot.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\bear_shot.xnb">
       <Link>Content\graphics\bear_shot.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\bear_yellow.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\bear_yellow.xnb">
       <Link>Content\graphics\bear_yellow.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\blue_orb.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\blue_orb.xnb">
       <Link>Content\graphics\blue_orb.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\burger.xnb">
-      <Link>Content\graphics\burger.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\gold_orb.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\gold_orb.xnb">
       <Link>Content\graphics\gold_orb.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\green_orb.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\green_orb.xnb">
       <Link>Content\graphics\green_orb.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\hubble_sky.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\hubble_sky.xnb">
       <Link>Content\graphics\hubble_sky.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\purple_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\purple_explosion.xnb">
       <Link>Content\graphics\purple_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\red_orb.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\red_orb.xnb">
       <Link>Content\graphics\red_orb.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\rock_asteroid.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\rock_asteroid.xnb">
       <Link>Content\graphics\rock_asteroid.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\rock_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\rock_explosion.xnb">
       <Link>Content\graphics\rock_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\rock_meteor.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\rock_meteor.xnb">
       <Link>Content\graphics\rock_meteor.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\tomcat_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\tomcat_explosion.xnb">
       <Link>Content\graphics\tomcat_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\Arial20.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\Arial20.xnb">
       <Link>Content\fonts\Arial20.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\Arial30B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\Arial30B.xnb">
       <Link>Content\fonts\Arial30B.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\Arial70B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\Arial70B.xnb">
       <Link>Content\fonts\Arial70B.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\background_music.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\background_music.xnb">
       <Link>Content\audio\background_music.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\bear_bounce.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\bear_bounce.xnb">
       <Link>Content\audio\bear_bounce.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\bear_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\bear_explosion.xnb">
       <Link>Content\audio\bear_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\bear_shot.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\bear_shot.xnb">
       <Link>Content\audio\bear_shot.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\bear_spawn.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\bear_spawn.xnb">
       <Link>Content\audio\bear_spawn.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\health_pickup.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\health_pickup.xnb">
       <Link>Content\audio\health_pickup.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\laser_shot.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\laser_shot.xnb">
       <Link>Content\audio\laser_shot.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\meteor_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\meteor_explosion.xnb">
       <Link>Content\audio\meteor_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\money_pickup.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\money_pickup.xnb">
       <Link>Content\audio\money_pickup.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\pirate_yarg.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\pirate_yarg.xnb">
       <Link>Content\audio\pirate_yarg.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\plasm_shot.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\plasm_shot.xnb">
       <Link>Content\audio\plasm_shot.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\powerup_pickup.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\powerup_pickup.xnb">
       <Link>Content\audio\powerup_pickup.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\projectile_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\projectile_explosion.xnb">
       <Link>Content\audio\projectile_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\shield_pickup.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\shield_pickup.xnb">
       <Link>Content\audio\shield_pickup.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\tomcat_damage.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\tomcat_damage.xnb">
       <Link>Content\audio\tomcat_damage.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\tomcat_death.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\tomcat_death.xnb">
       <Link>Content\audio\tomcat_death.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\boss1_shot.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\boss1_shot.xnb">
       <Link>Content\graphics\boss1_shot.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\background_boss1.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\background_boss1.xnb">
       <Link>Content\audio\background_boss1.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\background_boss2.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\background_boss2.xnb">
       <Link>Content\audio\background_boss2.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\boss_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\boss_explosion.xnb">
       <Link>Content\audio\boss_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\montage_tomcat.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\montage_tomcat.xnb">
       <Link>Content\graphics\montage_tomcat.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\montage_laser.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\montage_laser.xnb">
       <Link>Content\graphics\montage_laser.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\montage_plasm.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\montage_plasm.xnb">
       <Link>Content\graphics\montage_plasm.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\Iomanoid20B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\Iomanoid20B.xnb">
       <Link>Content\fonts\Iomanoid20B.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\PerfectDark70B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\PerfectDark70B.xnb">
       <Link>Content\fonts\PerfectDark70B.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\Iomanoid30B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\Iomanoid30B.xnb">
       <Link>Content\fonts\Iomanoid30B.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\Iomanoid70B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\Iomanoid70B.xnb">
       <Link>Content\fonts\Iomanoid70B.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\PerfectDark20B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\PerfectDark20B.xnb">
       <Link>Content\fonts\PerfectDark20B.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\fonts\PerfectDark30B.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\fonts\PerfectDark30B.xnb">
       <Link>Content\fonts\PerfectDark30B.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\blue_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\blue_explosion.xnb">
       <Link>Content\graphics\blue_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\tomcat_icon.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\tomcat_icon.xnb">
       <Link>Content\graphics\tomcat_icon.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\green_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\green_explosion.xnb">
       <Link>Content\graphics\green_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\wb_studios.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\wb_studios.xnb">
       <Link>Content\graphics\wb_studios.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\boss_death.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\boss_death.xnb">
       <Link>Content\audio\boss_death.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\boss_hit.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\boss_hit.xnb">
       <Link>Content\audio\boss_hit.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\boss_bounce.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\boss_bounce.xnb">
       <Link>Content\audio\boss_bounce.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\audio\boss_shot.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\audio\boss_shot.xnb">
       <Link>Content\audio\boss_shot.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\boss_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\boss_explosion.xnb">
       <Link>Content\graphics\boss_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\yellow_explosion.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\yellow_explosion.xnb">
       <Link>Content\graphics\yellow_explosion.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\SpaceF14Content\bin\graphics\montage_boss1.xnb">
+    <Content Include="..\SpaceF14Content\bin\DesktopGL\Content\graphics\montage_boss1.xnb">
       <Link>Content\graphics\montage_boss1.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
 </Project>
