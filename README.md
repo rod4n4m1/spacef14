@@ -4,8 +4,11 @@
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/rod4n4m1/spacef14)
 ![GitHub top language](https://img.shields.io/github/languages/top/rod4n4m1/spacef14)
 ![GitHub contributors](https://img.shields.io/github/contributors/rod4n4m1/spacef14)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Space F14** is a 2D arcade video game developed using `.NET` (C# language) and `MonoGame` frameworks.
+
+![game](space-f14-game-play.png)
 
 ## Requirements (MacOS/Windows)
 
@@ -53,6 +56,10 @@ dotnet run
 | SpaceF14Content | Original images, sprites, sounds, and fonts. Also, all compiled content used by the game through the MonoGame CB pipeline. |
 |  |  |
 
+
+### Release notes and versions
+
+[Change log](./CHANGELOG.md)
 
 ### References
 
